@@ -10,7 +10,7 @@ class YearResult extends Model
 {
     use HasFactory;
 
-    public function subjects(){
-        return $this->belongsToMany(SubjectResult::class);
+    public function year_Belongs_result(){
+        return $this->belongsTo(ResultTable::class);
     }
 }

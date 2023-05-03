@@ -12,6 +12,8 @@
         <meta name="keywords" content="admin template, Rubick Admin Template, dashboard template, flat admin template, responsive admin template, web app">
         <meta name="author" content="LEFT4CODE">
         <title>Admin Dashboard</title>
+        {{-- NICE SELECT 2  --}}
+        @stack('niceSelectCss')
         {{-- SUMMERNOTE CDN --}}
         @stack('summernoteCSS')
         {{-- BOOTSTRAP CSS --}}
@@ -73,6 +75,8 @@
                         </li>
                     </ul>
                 </li>
+
+                {{-- ** BLOOD GROUP *** --}}
                 <li>
                     <a href="javascript:;" class="menu">
                         <div class="menu__icon"> <i data-feather="box"></i> </div>
@@ -95,7 +99,39 @@
                 </li>
             
 
-
+                {{-- ** RESULT *** --}}
+                <li>
+                    <a href="javascript:;" class="menu">
+                        <div class="menu__icon"> <i data-feather="box"></i> </div>
+                        <div class="menu__title">Result<i data-feather="chevron-down" class="menu__sub-icon "></i> </div>
+                    </a>
+                    <ul class="">
+                        <li>
+                            <a href="{{ route('subject.result') }}" class="menu menu--active">
+                                <div class="menu__icon"> <i data-feather="activity"></i> </div>
+                                <div class="menu__title"> Add New Subject </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('subject.year') }}" class="menu menu--active">
+                                <div class="menu__icon"> <i data-feather="activity"></i> </div>
+                                <div class="menu__title"> Add a Year  </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('subject.result.list') }}" class="menu menu--active">
+                                <div class="menu__icon"> <i data-feather="activity"></i> </div>
+                                <div class="menu__title"> List All Subject  </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('result.details') }}" class="menu menu--active">
+                                <div class="menu__icon"> <i data-feather="activity"></i> </div>
+                                <div class="menu__title"> Result Details  </div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
 
                 <li>
@@ -660,6 +696,8 @@
                             </li>
                         </ul>
                     </li>
+
+                    {{-- ** BLOOD GROUP FOR PC ** --}}
                     <li>
                         <a href="javascript:;.html" class="side-menu">
                             <div class="side-menu__icon"> <i data-feather="box"></i> </div>
@@ -683,6 +721,9 @@
                             </li>
                         </ul>
                     </li>
+
+                    {{-- ** RESULT *** --}}
+
                     <li>
                         <a href="javascript:;.html" class="side-menu">
                             <div class="side-menu__icon"> <i data-feather="box"></i> </div>
@@ -691,9 +732,33 @@
                                 <div class="side-menu__sub-icon"> <i data-feather="chevron-down"></i> </div>
                             </div>
                         </a>
+                        <ul class="">
+                            <li>
+                                <a href="{{ route('subject.result') }}" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                    <div class="side-menu__title"> Add new subject </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('subject.year') }}" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                    <div class="side-menu__title"> Add a Year </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('subject.result.list') }}" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                    <div class="side-menu__title"> Subject List </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('result.details') }}" class="side-menu">
+                                    <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                                    <div class="side-menu__title"> Subject Details </div>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
-
-
 
 
                     <li>
@@ -1372,10 +1437,17 @@
         </div>
         <!-- BEGIN: JS Assets-->
         @stack('jquery')
+        
         <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
         <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBG7gNHAhDzgYmq4-EHvM4bqW1DNj2UCuk&libraries=places"></script>
         <script src="{{ asset('dist/js/app.js') }}"></script>
+
+        {{-- Sweet aleart js --}}
+        @stack('sweetJs')
+
+        {{-- NICE SELECT 2  --}}
+        @stack('NiceSelect_2')
 
         {{-- * CKEDITOR * --}}
         @stack('ckeditor')
@@ -1383,6 +1455,8 @@
         @stack('bootstrapJS')
         @stack('customJS')
         @stack('summernoteJS')
+
+
         
         <!-- END: JS Assets-->
     </body>

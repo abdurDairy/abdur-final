@@ -15,8 +15,7 @@ return new class extends Migration
     {
         Schema::create('year_results', function (Blueprint $table) {
             $table->id();
-            $table->string('passing_year');
-            $table->string('session');
+            $table->string('passing_year')->unique();
             $table->timestamps();
         });
     }

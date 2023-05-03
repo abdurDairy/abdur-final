@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\Teacher\TeachersController;
 use App\Http\Controllers\Frontend\AboutController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\Result\CtResultController;
+use App\Http\Controllers\Frontend\Result\FrontendResultController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -67,7 +68,20 @@ Route::prefix('admin')->group(function(){
 
     // ** RESULT 
     Route::get('subject-result', [ResultController::class, 'subjectResult'])->name('subject.result')->middleware('admin');
-
+    Route::post('subject-result-insert', [ResultController::class, 'subjectResultInsert'])->name('subject.result.insert')->middleware('admin');
+    Route::get('subject-list', [ResultController::class, 'subjectResultList'])->name('subject.result.list')->middleware('admin');
+    Route::get('subject-list-edit/{id}', [ResultController::class, 'subjectResultEdit'])->name('subject.result.edit')->middleware('admin');
+    Route::put('subject-list-update/{id}', [ResultController::class, 'subjectResultUpdate'])->name('subject.result.update')->middleware('admin');
+    Route::get('subject-delete/{id}', [ResultController::class, 'deleteSubject'])->name('subject.delete')->middleware('admin');
+    //  *RESULT YEAR
+    Route::get('subject-year', [ResultController::class, 'subjectYear'])->name('subject.year')->middleware('admin');
+    Route::post('subject-year-insert', [ResultController::class, 'subjectYearInsert'])->name('subject.year.insert')->middleware('admin');
+    Route::get('subject-year-list', [ResultController::class, 'subjectYearList'])->name('subject.year.list')->middleware('admin');
+    Route::get('subject-year-list-edit/{id}', [ResultController::class, 'subjectYearListEdit'])->name('subject.year.list.edit')->middleware('admin');
+    Route::get('year-delete/{id}', [ResultController::class, 'deleteYear'])->name('year.delete')->middleware('admin');
+    // * RESULT DETAILS
+    Route::get('result-details', [ResultController::class, 'resultDetails'])->name('result.details')->middleware('admin');
+    Route::post('result-details-upload', [ResultController::class, 'resultDetailsUpload'])->name('result.details.upload')->middleware('admin');
 });
 
 
@@ -114,6 +128,14 @@ Route::prefix('admin')->group(function(){
   // *FRONTEND ABOUT DEPARTMENT 
   Route::prefix('ete-department')->group(function(){
     Route::get('/about', [AboutController::class, 'aboutEte'])->name('about.index');
+  });
+
+
+  // *FRONTEND RESULT 
+  Route::prefix('result')->group(function(){
+    Route::get('/semester', [FrontendResultController::class, 'semesterIndex'])->name('semester.index');
+    //Route::get('/subject/{id}', [FrontendResultController::class, 'allSubject'])->name('subject.index');
+    Route::get('/details/{id}', [FrontendResultController::class, 'resultDetails'])->name('result.index');
   });
 
 
