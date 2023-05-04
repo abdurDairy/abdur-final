@@ -12,37 +12,24 @@
                         <table class="table table-responsive table-hover">
                            <tr>
                                <th>SN</th>
-                               <th>Semester</th>
-                               <th>Subject Name</th>
+                               {{-- <th>Semester</th> --}}
+                               {{-- <th>Subject Name</th> --}}
                                <th>Year</th>
                                <th>Download PDF</th>
                            </tr>
 
-
-                           @forelse ($results->semester_Parent_result as $key=>$data)
+                           @forelse ( $results->getResults as $key=>$result)
                                 <tr>
+                                    <td>{{ ++$key }}</td>
+                                    <td>{{ $results->passing_year }}</td>
                                     <td>
-                                        {{ ++$key }}
-                                    </td>
-                                    <td>
-                                        {{ $results->Semester }}
-                                    </td>
-
-                                        <td>
-                                          @foreach ($results->semester_Parent_Subject as $sub)
-                                             {{ $sub->subject_name  }}
-                                          @endforeach
-                                        </td>
-                                    <td>
-                                        {{ $data->year_result_id   }}
-                                    </td>
-                                    <td>
-                                        {{ $data->result_details }}
+                                        <a href="{{ route('pdf.index',$result->id) }}">Download PDF</a>
                                     </td>
                                 </tr>
-                               
                            @empty
-                               <strong>no data found ! </strong>
+                               <div class="row col-12 card ">
+                                   <h4>No Data Found ..</h4>
+                               </div>
                            @endforelse
                         </table>
                     </div>

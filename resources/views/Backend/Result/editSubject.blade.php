@@ -15,11 +15,11 @@
                             {{-- **SEMESTER SELECT * --}}
                             <label for="semester">Select a semester for subject</label>
                             <select name="semester" id="semester" class="form-control my-3">
-                                <option value="" disabled selected>Select Semester</option>
+                                {{-- <option value="" disabled selected>Select Semester</option> --}}
 
                                 {{-- ** ALL SEMESTER FROM ROUTINE SEMESTER MODEL --}}
                                 @foreach ($allSemester as $semesterData)
-                                  <option value="{{ $semesterData->id }}" >{{ $semesterData->Semester }}</option> 
+                                  <option @selected($allSubject->id ==  $semesterData->id ) value="{{ $semesterData->id }}" >{{ $semesterData->Semester }}</option> 
                                 @endforeach
                             </select>
                             {{-- **ERROR MESSAGE ** --}}

@@ -26,5 +26,6 @@ class DatabaseSeeder extends Seeder
         $this->call(AdminSeeder::class);
         $this->call(BloodGroupSeeder::class);
         $this->call(RoutineSemesterSeeder::class);
+        $this->call(TeacherSeeder::class);
     }
 }

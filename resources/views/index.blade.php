@@ -120,7 +120,7 @@
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="about-img default-overlay">
-                    <img src="assets/img/banner/banner-1.jpg" alt="">
+                    <img src="{{ asset('assets/img/banner/home-video.png') }}" alt="">
                     <a class="video-btn video-popup" href="https://www.youtube.com/watch?v=5JqRgaifcps">
                         <img class="animated" src="assets/img/icon-img/video.png" alt="">
                     </a>
@@ -908,11 +908,13 @@
                     <div class="course-content">
                         <h4>{{ $teacher->teacher_name }}</h4>
                         <p>
-                            @if (strlen($teacher->accademic_profile) > 100 )
-                                {!! substr($teacher->accademic_profile, 0, 60) !!} .....
+                            {{-- {{ dd(strlen($teacher->accademic_profile)) }} --}}
+                            @if (Str::length($teacher->accademic_profile) > 30)
+                              {!! Str::substr($teacher->accademic_profile,0,120) . "..." !!}
                             @else
                                 {!! $teacher->accademic_profile !!}
                             @endif
+                         
                         </p>
                     </div>
                     <div class="course-position-content">

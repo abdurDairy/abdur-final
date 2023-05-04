@@ -9,8 +9,8 @@ class SubjectResult extends Model
 {
     use HasFactory;
 
-    public function subject_Belongs_Result(){
-        return $this->belongsTo(ResultTable::class);
+    public function getResult(){
+        return $this->hasMany(ResultTable::class);
     }
 
     // ** RELATION WITH ROUTINE SEMESTER 

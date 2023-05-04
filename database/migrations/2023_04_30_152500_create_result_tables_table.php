@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('result_tables', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('routine_semester_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+           // $table->foreignId('routine_semester_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('subject_result_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('year_result_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->longText('result_details');

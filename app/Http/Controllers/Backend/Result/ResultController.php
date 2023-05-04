@@ -139,9 +139,10 @@ class ResultController extends Controller
      * 
      */
     public function resultDetails(){
+        $allsemester = RoutineSemester::all();
         $allsubject = subjectResult::all();
         $allyear = YearResult::all();
-        return view('Backend.Result.details',compact('allsubject','allyear'));
+        return view('Backend.Result.details',compact('allsubject','allyear','allsemester'));
     }
     
     public function resultDetailsUpload(Request $request){

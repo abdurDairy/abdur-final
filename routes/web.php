@@ -73,12 +73,14 @@ Route::prefix('admin')->group(function(){
     Route::get('subject-list-edit/{id}', [ResultController::class, 'subjectResultEdit'])->name('subject.result.edit')->middleware('admin');
     Route::put('subject-list-update/{id}', [ResultController::class, 'subjectResultUpdate'])->name('subject.result.update')->middleware('admin');
     Route::get('subject-delete/{id}', [ResultController::class, 'deleteSubject'])->name('subject.delete')->middleware('admin');
+    
     //  *RESULT YEAR
     Route::get('subject-year', [ResultController::class, 'subjectYear'])->name('subject.year')->middleware('admin');
     Route::post('subject-year-insert', [ResultController::class, 'subjectYearInsert'])->name('subject.year.insert')->middleware('admin');
     Route::get('subject-year-list', [ResultController::class, 'subjectYearList'])->name('subject.year.list')->middleware('admin');
     Route::get('subject-year-list-edit/{id}', [ResultController::class, 'subjectYearListEdit'])->name('subject.year.list.edit')->middleware('admin');
     Route::get('year-delete/{id}', [ResultController::class, 'deleteYear'])->name('year.delete')->middleware('admin');
+    
     // * RESULT DETAILS
     Route::get('result-details', [ResultController::class, 'resultDetails'])->name('result.details')->middleware('admin');
     Route::post('result-details-upload', [ResultController::class, 'resultDetailsUpload'])->name('result.details.upload')->middleware('admin');
@@ -133,9 +135,14 @@ Route::prefix('admin')->group(function(){
 
   // *FRONTEND RESULT 
   Route::prefix('result')->group(function(){
+    Route::get('/all', [FrontendResultController::class, 'allResult'])->name('all.result.index');
+    Route::get('/pdf/{id}', [FrontendResultController::class, 'pdfView'])->name('pdf.index');
+    Route::get('/pdf-contents/{id}', [FrontendResultController::class, 'pdfContents'])->name('pdfContents.index');
     Route::get('/semester', [FrontendResultController::class, 'semesterIndex'])->name('semester.index');
-    //Route::get('/subject/{id}', [FrontendResultController::class, 'allSubject'])->name('subject.index');
+    Route::get('/subject/{id}', [FrontendResultController::class, 'allSubject'])->name('subject.index');
     Route::get('/details/{id}', [FrontendResultController::class, 'resultDetails'])->name('result.index');
+    Route::get('/show-result', [FrontendResultController::class, 'showResult'])->name('show.index');
+    Route::post('/show-result-details', [FrontendResultController::class, 'getResultQuery'])->name('result.show.index');
   });
 
 

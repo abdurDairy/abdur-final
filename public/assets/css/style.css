@@ -3415,8 +3415,8 @@ textarea:focus {
   }
 }
 .about-img.default-overlay:before {
-  background-color: #000;
-  opacity: 0.5;
+  background-color: #141414;
+  opacity: 0.1;
 }
 .about-img.default-overlay img {
   width: 100%;

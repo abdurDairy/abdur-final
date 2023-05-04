@@ -41,8 +41,20 @@
                                 <td>{{ ++$key }}</td>
                                 <td>{{ $teacherData->teacher_name }}</td>
                                 <td>{{ $teacherData->teacher_designetion }}</td>
-                                <td>{!! $teacherData->accademic_profile	 !!}</td>
-                                <td>{!! $teacherData->biography !!}
+                                <td>
+                                    @if (Str::length($teacherData->accademic_profile) > 30)
+                                       {!! Str::substr($teacherData->accademic_profile,0,100) . "..." !!}
+                                    @else
+                                      {!! $teacherData->accademic_profile !!}
+                                    @endif
+                                </td>
+                                <td>
+
+                                    @if (Str::length($teacherData->biography) > 30)
+                                        {!! Str::substr($teacherData->biography,0,100) . "..." !!}
+                                    @else
+                                        {!! $teacherData->biography !!}
+                                    @endif
                                 </td>
 
                             

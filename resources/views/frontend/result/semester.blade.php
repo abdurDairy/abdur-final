@@ -10,7 +10,7 @@
                     <div class="row">
                         @forelse ($allSemester as $semester)
                             <div class="col-lg-4 my-2">
-                                <a href="{{ route('result.index',$semester->id) }}" style="color:#fff;text-align:center;">
+                                <a href="{{ route('subject.index',$semester->id) }}" style="color:#fff;text-align:center;">
                                     <div class="semester-btn" style="padding: 30px;background:#08a83d;">
                                        <span style="font-size:18px;font-family:'Times New Roman', Times, serif;"> {{ $semester->Semester }}</span>
                                     </div>

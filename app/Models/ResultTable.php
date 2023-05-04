@@ -8,16 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class ResultTable extends Model
 {
     use HasFactory;
-    public function result_Parent_year(){
-        return $this->hasMany(YearResult::class);
+    public function getYear(){
+        return $this->belongsTo(YearResult::class,'year_result_id');
     }
 
-    
-    public function result_parent_subject(){
-        return $this->hasMany(SubjectResult::class);
+    public function getSubject(){
+        return $this->belongsTo(SubjectResult::class, 'subject_result_id');
     }
-    
-    public function result_belong_routine(){
+
+    public function getSemester(){
         return $this->belongsTo(RoutineSemester::class);
     }
 }
